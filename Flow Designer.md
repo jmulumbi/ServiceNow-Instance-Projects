@@ -1,6 +1,6 @@
 # ServiceNow Flow Designer — Social Media Response Automation
 
-A two-part automation project built in **ServiceNow Flow Designer** as part of the Now Learning training curriculum. The project automates social media monitor management — from approval routing to negative comment escalation — using no-code/low-code workflow tools.
+A two-part automation project built in **ServiceNow Flow Designer**. The project automates social media monitor management — from approval routing to negative comment escalation — using no-code/low-code workflow tools.
 
 **Platform:** ServiceNow (Now Learning lab)
 **Application scope:** Global / Social Media Management
