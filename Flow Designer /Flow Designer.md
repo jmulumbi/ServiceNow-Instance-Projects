@@ -70,7 +70,7 @@ A **reusable subflow** that can be called from any flow in the Social Media Mana
 7. Returns a `Subflow Result` string output
 
 <!-- IMAGE: Subflow canvas — full view showing all steps -->
-![Subflow overview](images/subflow-overview.png)
+![Subflow overview](assets/subflow-overview.png)
 
 <!-- IMAGE: If conditions (steps 2 and 4) showing threshold and problem check logic -->
 ![Subflow conditions](images/subflow-conditions.png)
