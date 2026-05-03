@@ -84,7 +84,7 @@ The admin workspace is a separate page built for managers and admins that gives 
 
 Below the charts I added a **location dropdown** that's wired to the `Issue Locations` data resource. Selecting a location dynamically filters the **Open Safety Issues by Location** list underneath — showing Number, Priority, State, Short Description, and Location for just that site. The list header also shows a live record count so you always know how many issues are open at the selected location.
 
-![Admin Workspace — UI Builder editor showing the list component config](Assets/ModalCreation.png)
+![Admin Workspace — UI Builder editor showing the list component config](./Assets%20/ModalCreation.png)
 
 ![Admin Workspace — location dropdown open with all locations listed](./Assets%20/OptionDropDown.png)
 
