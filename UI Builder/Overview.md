@@ -39,7 +39,7 @@ The end-user landing page gives each user a personal view of their safety issues
 - A **Donut chart** on the right, connected to a data resource that shows the current user's open issues broken down by priority in real time
 - A **tabbed list/card view** at the bottom — users can toggle between a list view and a card view, with each card showing the issue number, priority, state, and a direct "Go to Record" button
 
-  ![Safety Issues Workspace — UI Builder editor view](Assets/SafetyIssueWorkSpace.png)
+  ![Safety Issues Workspace — UI Builder editor view](./Assets%20/SafetyIssueWorkSpace.png)
 
 
 ---
@@ -51,7 +51,7 @@ I wired up a **"Log a Safety Issue" modal dialog** on the workspace page. When t
 1. **EXECUTE** — fires the `Create Safety Record` data resource to write the new record to the table
 2. **Open or close modal dialog** — closes the modal after the record is created
 3. **REFRESH** — triggers the `Look Up Issues` data resource to reload the list so the new entry shows up immediately without a page refresh
-   ![Log a Safety Issue modal with event chain configured in UI Builder](screenshots/03-submit-modal-builder.png)
+   ![Log a Safety Issue modal with event chain configured in UI Builder](./Assets%20/CreateAIncident.png)
 
 ---
 
@@ -65,9 +65,9 @@ Rather than using the default platform form, I built a fully custom record page 
 - An **Attachments panel** on the right rail
   The record page is scoped to the `x_snc_safety_iss` table and resolves the record using `sysId` passed through the URL parameters.
 
-![Safety Issue record — live preview](screenshots/04-record-form-preview.png)
+![Safety Issue record — live preview](./Assets%20/IncidentLiveRecord.png)
 
-![Safety Issue record — UI Builder editor with Form Controller wired up](screenshots/05-record-form-builder.png)
+<!-- ![Safety Issue record — UI Builder editor with Form Controller wired up]() -->
 
 ---
 
@@ -86,11 +86,11 @@ Below the charts I added a **location dropdown** that's wired to the `Issue Loca
 
 ![Admin Workspace — UI Builder editor showing the list component config](Assets/ModalCreation.png)
 
-![Admin Workspace — location dropdown open with all locations listed](screenshots/07-admin-workspace-filter.png)
+![Admin Workspace — location dropdown open with all locations listed](./Assets%20/OptionDropDown.png)
 
-![Admin Workspace — filtered to Colorado Springs showing 5 open issues](screenshots/08-admin-workspace-filtered.png)
+<!-- ![Admin Workspace — filtered to Colorado Springs showing 5 open issues](screenshots/08-admin-workspace-filtered.png)
 
-![Admin Workspace — full live view](Assets/SafetyIssueWorkSpace)
+![Admin Workspace — full live view](Assets/SafetyIssueWorkSpace) -->
 
 ---
 
