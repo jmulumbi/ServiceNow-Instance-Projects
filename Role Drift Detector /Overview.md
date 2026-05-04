@@ -6,22 +6,6 @@
  
 ---
  
-## 📋 Table of Contents
- 
-- [The Problem](#the-problem)
-- [What This App Does](#what-this-app-does)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [How It Works](#how-it-works)
-- [Scheduled Job](#scheduled-job)
-- [Flow Designer Automation](#flow-designer-automation)
-- [Dashboard](#dashboard)
-- [Future Enhancements](#future-enhancements)
----
- 
 ## 🚨 The Problem
  
 In ServiceNow environments, users accumulate roles over time — a project grant here, an emergency access there — and nobody revokes them. This is called **role drift** and it is one of the most common findings in IT security audits.
@@ -85,59 +69,12 @@ Flagged users automatically generate a High priority review task assigned to the
 │   → Creates High priority Task                      │
 │   → Links Task back to Drift Record                 │
 └─────────────────────────────────────────────────────┘
-```
- 
----
- 
-## 📸 Process
- 
-### Role Baseline Table
-Defines the expected roles for each department and job title combination.
- 
-![Role Baseline Table](./Assets/RoleBaseline.png)
- 
----
- 
-### Role Drift Records
-168 drift records detected on first scan across 13 users.
- 
-![Drift Records List](./Assets/RoleDriftRecord.png)
- 
----
- 
-### Detection Script (Script Include)
-Core GlideRecord logic comparing actual vs expected roles.
- 
-![Script Include](./Assets/RoleDriftUtils.png)
-
-![Script](./GlideRecord.js)
- 
----
- 
-### Scheduled Job
-Configured to run every Sunday at midnight.
- 
-![Scheduled Job](./Assets/ScheduledScriptExecution.png)
- 
----
- 
-### Flow Designer
-Auto-creates a High priority security review task when a red record is created.
- 
-![Flow Designer](./Assets/RecordDriftFlowDesigner.png)
- 
----
- 
-### Security Dashboard
-RAG status overview with donut chart, single score, and department breakdown.
- 
-![Dashboard](./Assets/DashboardPreview.png)
- 
+``` 
 ---
  
 ## 🚀 Installation
  
-This app was built directly on a ServiceNow PDI using App Engine Studio. To replicate it on your own instance:
+This app was built directly on a ServiceNow PDI using App Engine Studio. These are the steps that I took to create the project.
  
 ### Step 1 — Create the Scoped App
 1. Navigate to App Engine Studio
@@ -153,6 +90,8 @@ This app was built directly on a ServiceNow PDI using App Engine Studio. To repl
 | Job Title | String (100) | — |
 | Allowed Roles | List | sys_user_role |
 | Description | String (255) | — |
+
+![Role Baseline Table](./Assets/RoleBaselineTable.png)
  
 **Table 2: Role Drift Record** (`x_[scope]_role_drift_record`)
  
@@ -167,7 +106,8 @@ This app was built directly on a ServiceNow PDI using App Engine Studio. To repl
 | Resolved | True/False | default: false |
 | Review Task | Reference | task |
 | Notes | String (500) | — |
- 
+
+ ![Role Baseline Table](./Assets/RDRAppEngineStudio.png)
 ---
  
 ## ⚙️ Configuration
@@ -184,8 +124,10 @@ Example baselines:
 | Development | Director | itil, report_user, approver_user |
 | Sales | Inside Sales | itil, report_user |
 | Finance | Chief Financial Officer | itil, report_user, approver_user |
- 
-> ⚠️ Job Title values must match exactly what is stored in the `sys_user.title` field on user records.
+
+Defines the expected roles for each department and job title combination.
+
+![Role Baseline Table](./Assets/RoleBaseline.png)
  
 ---
  
@@ -205,7 +147,11 @@ The detection engine (`RoleDriftUtils` Script Include) runs the following logic:
    - Create a Role Drift Record
 5. If user has no drift → mark any old records as resolved (GREEN)
 ```
- 
+![Script Include](./Assets/RoleDriftUtils.png)
+
+![Script](./GlideRecord.js)
+
+
 ### RAG Status Logic
  
 | Status | Condition | Action Required |
@@ -231,6 +177,11 @@ To run manually: open the scheduled job record and click **Execute Now**.
 **First scan results on PDI:**
 - Users scanned: 13
 - Drift records created: 168
+
+Configured to run every Sunday at midnight.
+ 
+![Scheduled Job](./Assets/ScheduledScriptExecution.png)
+
 ---
  
 ## 🤖 Flow Designer Automation
@@ -241,6 +192,11 @@ To run manually: open the scheduled job record and click **Execute Now**.
 **Actions:**
 1. **Create Task** — High priority, Open state, short description includes user name
 2. **Update Drift Record** — Links the created task back to the drift record via Review Task field
+
+Auto-creates a High priority security review task when a red record is created.
+ 
+![Flow Designer](./Assets/RecordDriftFlowDesigner.png)
+
 ---
  
 ## 📊 Dashboard
@@ -252,6 +208,12 @@ To run manually: open the scheduled job record and click **Execute Now**.
 - 🍩 **Donut Chart** — RAG Status breakdown (grouped by rag_status, filter: resolved=false)
 - 🔢 **Single Score** — Total red drift records count
 - 📊 **Bar Chart** — Drift records by department
+
+
+RAG status overview with donut chart, single score, and department breakdown.
+ 
+![Dashboard](./Assets/DashboardPreview.png)
+
 ---
  
 ## 🔮 Future Enhancements
