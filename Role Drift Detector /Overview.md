@@ -149,7 +149,7 @@ The detection engine (`RoleDriftUtils` Script Include) runs the following logic:
 ```
 ![Script Include](./Assets/RoleDriftUtils.png)
 
-**Full Code**:(./GlideRecord.js)
+**Full Code**:![](./GlideRecord.js)
 
 
 ### RAG Status Logic
